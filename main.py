@@ -4,7 +4,6 @@
 import discord
 import re
 from yt_dlp import YoutubeDL
-import uuid
 import glob
 import os
 
@@ -20,7 +19,7 @@ async def on_message(message):
 
     # If link is Instagram reel
     if matches:
-        name = uuid.uuid4()
+        name = matches[1]
 
         # Create folder reel if it doesn't exist
         if not os.path.exists("reel"):
