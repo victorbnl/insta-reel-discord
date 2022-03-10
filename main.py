@@ -16,7 +16,7 @@ async def on_message(message):
 
     # If link is Instagram reel
     if matches:
-        name = uuid.uuid1()
+        name = uuid.uuid4()
 
         # Create folder reel if it doesn't exist
         if not os.path.exists("reel"):
