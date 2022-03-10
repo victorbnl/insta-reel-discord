@@ -11,6 +11,10 @@ import os
 bot = discord.Client()
 
 @bot.event
+async def on_ready():
+    print("Ready")
+
+@bot.event
 async def on_message(message):
     matches = re.match("https:\/\/www\.instagram\.com\/reel\/(\w*)", message.content)
 
