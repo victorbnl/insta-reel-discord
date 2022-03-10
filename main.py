@@ -26,7 +26,11 @@ async def on_message(message):
             os.makedirs("reel")
 
         # Download it
-        with YoutubeDL({"outtmpl": "reel/{}.%(ext)s".format(name)}) as ytdl:
+        ytdl_opts = {
+            "outtmpl": "reel/{}.%(ext)s".format(name),
+            "quiet": True
+        }
+        with YoutubeDL(ytdl_opts) as ytdl:
             ytdl.download([matches[0]])
 
         # Get filename (extension is unknown)
