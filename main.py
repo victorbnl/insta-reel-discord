@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    matches = re.match("https:\/\/www\.instagram\.com\/reel\/(\w*)", message.content)
+    matches = re.match("https:\/\/www\.instagram\.com\/reel\/([a-zA-Z0-9_\-]*)", message.content)
 
     # If link is Instagram reel
     if matches:
