@@ -32,6 +32,10 @@ async def on_message(message):
             "outtmpl": "reel/{}.%(ext)s".format(name),
             "cookiefile": "cookies.txt",
             "quiet": True,
+            'postprocessors': [{
+                'key': 'FFmpegVideoConvertor',
+                'preferedformat': 'mp4'
+            }],
         }
         with YoutubeDL(ytdl_opts) as ytdl:
             try:
