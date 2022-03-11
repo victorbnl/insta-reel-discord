@@ -38,7 +38,7 @@ async def on_message(message):
                 ytdl.download([matches[0]])
 
             except Exception as error:
-                await message.channel.send(error)
+                await message.channel.send(embed=discord.Embed(title="Youtube-DL error", description=error, color=0xff0000))
                 return
 
         # Get filename (extension is unknown)
