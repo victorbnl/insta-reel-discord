@@ -13,9 +13,11 @@ bot = discord.Client()
 async def on_ready():
     print("Ready")
 
+regex = re.compile("https:\/\/www\.instagram\.com\/reel\/([a-zA-Z0-9_\-]*)")
+
 @bot.event
 async def on_message(message):
-    matches = re.match("https:\/\/www\.instagram\.com\/reel\/([a-zA-Z0-9_\-]*)", message.content)
+    matches = re.match(regex, message.content)
 
     # If link is Instagram reel
     if matches:
