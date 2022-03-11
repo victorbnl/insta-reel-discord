@@ -31,7 +31,12 @@ async def on_message(message):
             "quiet": True
         }
         with YoutubeDL(ytdl_opts) as ytdl:
-            ytdl.download([matches[0]])
+            try:
+                ytdl.download([matches[0]])
+
+            except Exception as error:
+                await message.channel.send(error)
+                return
 
         # Get filename (extension is unknown)
         path = glob.glob("reel/{}.*".format(name))[0]
@@ -42,6 +47,8 @@ async def on_message(message):
 
         # Delete it
         os.remove(path)
+
+        return
 
 with open("token.txt", "r") as file_:
     token = file_.read()
