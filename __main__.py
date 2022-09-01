@@ -14,13 +14,15 @@ async def on_ready():
     print("Ready")
 
 regex = re.compile("https:\/\/www\.instagram\.com\/reel\/([a-zA-Z0-9_\-]*)")
+regex_tiktok = re.compile("https:\/\/vm\.tiktok\.com\/([a-zA-Z0-9_\-]*)")
 
 @bot.event
 async def on_message(message):
     matches = re.search(regex, message.content)
+    matches_tiktok = re.search(regex_tiktok, message.content)
 
-    # If link is Instagram reel
-    if matches:
+    # If link is Instagram reel or Tiktok video
+    if matches or matches_tiktok:
         name = matches[1]
 
         # Create folder reel if it doesn't exist
