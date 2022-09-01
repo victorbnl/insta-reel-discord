@@ -1,2 +1,4 @@
-token.txt
+.env
 cookies.txt
+venv
+__pycache__
